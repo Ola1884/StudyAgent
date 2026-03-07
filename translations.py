@@ -1,0 +1,67 @@
+# translations.py
+
+TRANSLATIONS = {
+    'en': {
+        'title': '⏱ Wateera',
+        'welcome': 'Welcome! Add your Tasks and let AI create your smart plan.',
+        'setup_courses': '📚 Setup Courses',
+        'view_plan': '🗓️ View Plan',
+        'own_plan':'Make your own Plan',
+        'add_course': 'Add Course',
+        'course_name': 'Course Name',
+        'hours_per_week': 'Hours needed per week',
+        'add_exam': 'Add Exam',
+        'select_course': 'Select Course',
+        'exam_date': 'Exam Date',
+        'current_setup': '📋 Current Setup',
+        'courses': 'Courses:',
+        'exams': 'Exams:',
+        'reset_data': 'Reset All Data',
+        'added_success': '✅ Added: {}',
+        'exam_set': '✅ Exam for {} set!',
+        'no_courses': 'No courses yet. Add one above!',
+        'no_exams': 'No exams yet.',
+        'language': 'Language 🌐',
+        'back_to_home': '← Back to Home',
+        'static_planner': '📝 Static Planner',
+        'ai_planner': '🤖 AI-Powered Plan',
+        'generate_plan': 'Generate Smart Plan',
+        'menu': '⚙️ Menu',
+        'footer': 'A journey of a thousand miles begins with a single step'
+    },
+    'ar': {
+        'title': 'المخطط الدراسي الذكي⏱',
+        'welcome': 'مرحباً! أضف مهامك ودع الذكاء الاصطناعي ينشئ خطة مخصصة لك.',
+        'setup_courses': '📚 إعداد المواد ',
+        'view_plan': '🗓️ عرض الخطة',
+        'own_plan':'خطط بنفسك',
+        'add_course': 'إضافة مادة',
+        'course_name': 'اسم المادة',
+        'hours_per_week': 'الساعات المطلوبة أسبوعياً',
+        'add_exam': 'إضافة امتحان',
+        'select_course': 'اختر المادة',
+        'exam_date': 'تاريخ الامتحان',
+        'current_setup': '📋 الإعدادات الحالية',
+        'courses': 'المواد:',
+        'exams': 'الامتحانات:',
+        'reset_data': 'إعادة تعيين جميع البيانات',
+        'added_success': '✅ تم إضافة: {}',
+        'exam_set': '✅ تم تحديد امتحان {}!',
+        'no_courses': 'لا توجد مواد بعد. أضف واحدة أعلاه!',
+        'no_exams': 'لا توجد امتحانات بعد.',
+        'language': 'اللغة 🌐',
+        'back_to_home': '→ العودة للرئيسية',
+        'static_planner': '📝 المخطط اليدوي',
+        'ai_planner': '🤖 الخطة بالذكاء الاصطناعي',
+        'generate_plan': 'إنشاء خطة ذكية',
+        'menu': '⚙️ القائمة',
+        'footer': 'مشوار الألف ميل يبدأ بخطوة'
+    }
+}
+
+def get_text(key, lang='en'):
+    """Get translated text with fallback"""
+    try:
+        return TRANSLATIONS.get(lang, TRANSLATIONS['en']).get(key, key)
+    except:
+        return key
