@@ -5,11 +5,14 @@ TRANSLATIONS = {
         'title': '⏱ Wateera',
         'welcome': 'Welcome! Add your Tasks and let AI create your smart plan.',
         'setup_courses': '📚 Setup Courses',
+        'task_title':'Add your tasks here',
         'view_plan': '🗓️ View Plan',
         'own_plan':'Make your own Plan',
         'add_course': 'Add Course',
         'course_name': 'Course Name',
+        'hours_per_day':'Hours needed',
         'hours_per_week': 'Hours needed per week',
+        "priority":"Priority",
         'add_exam': 'Add Exam',
         'select_course': 'Select Course',
         'exam_date': 'Exam Date',
@@ -26,18 +29,24 @@ TRANSLATIONS = {
         'static_planner': '📝 Static Planner',
         'ai_planner': '🤖 AI-Powered Plan',
         'generate_plan': 'Generate Smart Plan',
-        'menu': '⚙️ Menu',
-        'footer': 'A journey of a thousand miles begins with a single step'
+        'menu': ' Menu',
+        'footer': 'A journey of a thousand miles begins with a single step',
+        'motive':'Start...Finished ✅',
+        'home':'Home',
+        'settings':'⚙️Settings'
     },
     'ar': {
         'title': 'المخطط الدراسي الذكي⏱',
         'welcome': 'مرحباً! أضف مهامك ودع الذكاء الاصطناعي ينشئ خطة مخصصة لك.',
         'setup_courses': '📚 إعداد المواد ',
+        'task_title':'أضف مهامك هنا',
         'view_plan': '🗓️ عرض الخطة',
         'own_plan':'خطط بنفسك',
         'add_course': 'إضافة مادة',
         'course_name': 'اسم المادة',
+        'hours_per_day':'الساعات المطلوبة',
         'hours_per_week': 'الساعات المطلوبة أسبوعياً',
+        'priority':'أولوية',
         'add_exam': 'إضافة امتحان',
         'select_course': 'اختر المادة',
         'exam_date': 'تاريخ الامتحان',
@@ -54,8 +63,11 @@ TRANSLATIONS = {
         'static_planner': '📝 المخطط اليدوي',
         'ai_planner': '🤖 الخطة بالذكاء الاصطناعي',
         'generate_plan': 'إنشاء خطة ذكية',
-        'menu': '⚙️ القائمة',
-        'footer': 'مشوار الألف ميل يبدأ بخطوة'
+        'menu': 'القائمة',
+        'footer': 'مشوار الألف ميل يبدأ بخطوة',
+        'motive':'ابدأ...تنتهي ✅ ',
+        'home':'الرئيسية',
+        'settings': ' ⚙️الإعدادات'
     }
 }
 
