@@ -2,7 +2,7 @@ import streamlit as st
 import json
 import os
 from translations import get_text
-from utils import apply_theme, add_footer
+from utils import apply_theme, add_footer,render_sidebar
 
 # ─────────────────────────────────────────────────────────────
 # 1. PAGE CONFIGURATION
@@ -21,10 +21,7 @@ lang = st.session_state.language
 # ─────────────────────────────────────────────────────────────
 # 3. SIDEBAR: Back Button + Language Toggle
 # ───────────────────────────────────────────────────────────── " ➞ "," ⬅ " 
-with st.sidebar:
-    if st.button(get_text('back_to_home',lang),use_container_width=True):
-        st.switch_page("app.py")
-apply_theme(st.session_state.language)
+render_sidebar(lang,show_back_button=True)
 # ─────────────────────────────────────────────────────────────
 # 4. APPLY THEME
 # ─────────────────────────────────────────────────────────────
@@ -35,15 +32,15 @@ apply_theme(lang)
 DATA_FILE = "student_data.json"
 def load_data():
     if not os.path.exists(DATA_FILE):
-        return {"Tasks":[],"Exams":[]}
+        return {"courses":[],"exams":[]}
     try:
         with open(DATA_FILE,"r", encoding='utf-8') as f:
             return json.load(f)
     except:
-        return {"Tasks":[],"Exams":[]}
+        return {"courses":[],"exams":[]}
 def save_data(data):
     #save data to json file
-    with open(DATA_FILE,"w","utf-8") as f:
+    with open(DATA_FILE,"w",encoding="utf-8") as f:
         json.dump(data,f, ensure_ascii=False,indent=2)  
 #load current data
 data = load_data()  
@@ -58,9 +55,9 @@ with st.form("task_form"):
     with col1:
         course_name = st.text_input(get_text("course_name",lang), placeholder="e.g., Math")
     with col2:
-        hours = st.number_input(get_text("hours_per_day"), min_value=0.5, max_value=12.0, step=0.5)
+        hours = st.number_input(get_text("hours_per_day",lang), min_value=0.5, max_value=12.0, step=0.5)
     with col3:
-        lectures = st.number_input("Taken Lectures",min_value=0,step=1)
+        lectures = st.number_input(get_text("lectures",lang),min_value=0,step=1)
     with col4:
         priority = st.selectbox(get_text("priority",lang), ["High 🔴", "Medium 🟡", "Low 🟢"]  if lang == "en" else ["🔴عالي ", "🟡متوسط ", "🟢منخفض "])
 
@@ -69,7 +66,7 @@ with st.form("task_form"):
 
     # 8. Logic to Save Task
     if submitted_course and course_name:
-        if any(c['name'] == course_name for c in data['Tasks']):
+        if any(c['name'] == course_name for c in data['courses']):
             st.warning(f"⚠️ {course_name}" + "already exists!!!" if lang == 'en' else "موجود مسبقا!!!")
         else:
             data["courses"].append({
@@ -87,7 +84,7 @@ st.subheader("📅 "+get_text("add_exam",lang))
 with st.form("exam_form"):
     col1,col2 = st.columns(2)
     with col1:
-        course_list = [c["name"] for c in data["Tasks"]]
+        course_list = [c["name"] for c in data["courses"]]
         if course_list:
             exam_course = st.selectbox(get_text("select_course",lang),course_list)
         else:

@@ -1,6 +1,6 @@
 import streamlit as st
 from translations import get_text
-from utils import apply_theme, add_footer
+from utils import apply_theme, add_footer,render_sidebar
 
 # ─────────────────────────────────────────────────────────────
 # 1. PAGE CONFIGURATION
@@ -20,17 +20,7 @@ if 'language' not in st.session_state:
 # 3. SIDEBAR
 # ─────────────────────────────────────────────────────────────
 lang =  st.session_state.language
-with st.sidebar:
-    # Language toggle button
-    if st.button(get_text("language",lang), use_container_width=True):
-        st.session_state.language = 'ar' if st.session_state.language == 'en' else 'en'
-        st.rerun()
-    
-    st.button("🟰 "+get_text('menu', lang))
-    st.button("🏠 " + get_text('home', lang))
-    st.button(get_text('settings', lang))
-
-    st.divider()
+render_sidebar(lang,show_back_button=False)
 
 # ─────────────────────────────────────────────────────────────
 # 4. APPLY THEME (Fonts, Colors, RTL/LTR)

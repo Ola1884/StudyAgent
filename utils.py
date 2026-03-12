@@ -1,5 +1,6 @@
 # utils.py
 import streamlit as st
+from translations import get_text
 
 def custom_CSS(lang):
     """Returns custom CSS based on language"""
@@ -114,3 +115,17 @@ def apply_theme(lang):
 def add_footer(text):
     """Adds a custom footer"""
     st.markdown(f'<div class="custom-footer">{text}</div>', unsafe_allow_html=True)
+
+def render_sidebar(lang,show_back_button=False):
+    with st.sidebar:
+        if show_back_button:
+            if st.button(get_text('back_to_home',lang)):
+                st.switch_page("app.py")
+        # Language toggle button
+        if st.button(get_text("language",lang)):
+            st.session_state.language = 'ar' if st.session_state.language == 'en' else 'en'
+            st.rerun()
+        
+        st.button("🟰 "+get_text('menu', lang))
+        st.button("🏠 " + get_text('home', lang))
+        st.button(get_text('settings', lang))
