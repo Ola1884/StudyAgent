@@ -3,6 +3,7 @@ import json
 import os
 from translations import get_text
 from utils import apply_theme, add_footer,render_sidebar
+from data_handler import load_data,save_data
 
 # ─────────────────────────────────────────────────────────────
 # 1. PAGE CONFIGURATION
@@ -29,19 +30,6 @@ apply_theme(lang)
 # ─────────────────────────────────────────────────────────────
 # 5. DATA HANDLING (JSON File)
 # ─────────────────────────────────────────────────────────────
-DATA_FILE = "student_data.json"
-def load_data():
-    if not os.path.exists(DATA_FILE):
-        return {"courses":[],"exams":[]}
-    try:
-        with open(DATA_FILE,"r", encoding='utf-8') as f:
-            return json.load(f)
-    except:
-        return {"courses":[],"exams":[]}
-def save_data(data):
-    #save data to json file
-    with open(DATA_FILE,"w",encoding="utf-8") as f:
-        json.dump(data,f, ensure_ascii=False,indent=2)  
 #load current data
 data = load_data()  
 # ─────────────────────────────────────────────────────────────
