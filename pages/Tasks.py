@@ -3,7 +3,7 @@ import json
 import os
 from translations import get_text
 from utils import apply_theme, add_footer,render_sidebar
-from data_handler import load_data,save_data
+from data_handler import load_data,save_data,DATA_FILE
 
 # ─────────────────────────────────────────────────────────────
 # 1. PAGE CONFIGURATION
