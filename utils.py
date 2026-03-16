@@ -124,7 +124,6 @@ def render_sidebar(lang,show_back_button=False):
         # Language toggle button
         if st.button(get_text("language",lang)):
             st.session_state.language = 'ar' if st.session_state.language == 'en' else 'en'
-            st.rerun()
         
         st.button("🟰 "+get_text('menu', lang))
         st.button("🏠 " + get_text('home', lang))

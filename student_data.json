@@ -1,0 +1,16 @@
+{
+  "courses": [
+    {
+      "name": "math",
+      "hours": 1.5,
+      "lectures": 2,
+      "progress": 0
+    }
+  ],
+  "exams": [
+    {
+      "course": "math",
+      "date": "2026-03-17"
+    }
+  ]
+}
